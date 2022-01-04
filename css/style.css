@@ -19,7 +19,8 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background-image:url(https://cdn.jsdelivr.net/gh/nushena/zhuyejs/images/0aef45843e1bcea2.png);
+  
+  background-image:url(/static/images/0aef45843e1bcea2.png);
   background-size: cover;
   left: 0;
   right: 0;
