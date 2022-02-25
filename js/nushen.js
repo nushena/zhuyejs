@@ -38,7 +38,7 @@ document.getElementById("sitetime").innerHTML=""+diffYears+" 年 "+diffDays+" �
 siteTime()
 
 
-/* 首页文案 */
+/* 首页文案 乱码加载
 var chakhsu = function (r) {
     function t() {
         return b[Math.floor(Math.random() * b.length)]
@@ -57,7 +57,8 @@ var chakhsu = function (r) {
         var t = o[c.skillI];
         c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
     }
-    /*以下内容自定义修改*/
+    */
+    /*以下内容自定义修改
     var l = ""
     o = ["千篇一律的面具背后尽是伪善的人心。",
         "吾心吾行澄如明镜，所作所为皆为正义。",
@@ -73,9 +74,35 @@ var chakhsu = function (r) {
     i()
 };
 chakhsu(document.getElementById('chakhsu'));
-
+*/
 function disappear() {
     if (document.getElementById("page-info").style.display == "block") {
         document.getElementById("page-info").style.display = "none";
+    }else{
+        document.getElementById("page-info").style.display == "block"
     }
+}
+
+/* 首页文案 打字机形式加载 配合typewriter.min.js*/
+var app = document.getElementById('chakhsu');
+var typewriter = new Typewriter(chakhsu, {
+        loop: true
+});
+
+var yiyan = [
+    "千篇一律的面具背后尽是伪善的人心。",
+    "吾心吾行澄如明镜，所作所为皆为正义。",
+    "离别长，欢聚短，若共把酒为歌，且斟余生一酌。",
+    "昨夜星辰昨夜风，画楼西畔桂堂东。",
+    "诸行无常、诸法无我、涅槃喧嚣。",
+    "Everything ends. But everything begins again too."];
+
+typewriter.typeString('青衫烟雨客，似是故人来。')
+    .pauseFor(3500)
+    .deleteAll()  
+for (var i = 0; i < yiyan.length; i++){
+    typewriter.typeString(yiyan[i])
+    typewriter.pauseFor(3000)
+    typewriter.deleteAll()
+    .start()
 }
